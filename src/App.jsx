@@ -54,7 +54,14 @@ export default function App() {
           <li key={product.id}>{product.name}: {product.qty} шт.</li>
         ))}
       </ul>
-      <button type='button' onClick={()=> setLimit(n => n+25)}>Показать еще</button>
+      {limit < products.length && (
+      <button type='button' onClick={()=> setLimit(n => n+25)}>Показать еще</button>  
+      )}
+      {limit > 25 && (
+        <button type='button' onClick={() => setLimit(25)}>свернуть список</button>
+      )}
+
+      
     </main>
   );
 }
